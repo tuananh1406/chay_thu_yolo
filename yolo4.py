@@ -1,4 +1,4 @@
-#! coding: utf-8
+# coding: utf-8
 import argparse
 import time
 import cv2
@@ -74,7 +74,7 @@ def nhan_dien_doi_tuong(mo_hinh, hinh_anh):
             cac_tuy_chon['dochinhxac'],
             cac_tuy_chon['threshold'],
         )
-    print('Tìm được %d đối tượng' % (len(idxs)))
+    # print('Tìm được %d đối tượng' % (len(idxs)))
     ds_ket_qua = []
     if len(idxs) > 0:
         for duong_bao in idxs.flatten():
@@ -156,8 +156,6 @@ mo_hinh = cv2.dnn.readNetFromDarknet(
         duong_dan_cau_hinh,
         duong_dan_weights,
         )
-bo_nho = chuong_trinh.memory_info()[0] / float(2 ** 20)
-print(bo_nho)
 
 # Tải ảnh đầu vào và lấy kích thước
 print('[INFO] Tải hình ảnh')
@@ -205,7 +203,7 @@ else:
     hinh_anh_moi = hinh_anh
 
 bo_nho = chuong_trinh.memory_info()[0] / float(2 ** 20)
-print(bo_nho)
+print('Dung lượng bộ nhớ chiếm dụng: {:.3f}MB'.format(bo_nho))
 
 cv2.imshow("Ket qua", hinh_anh_moi)
 cv2.waitKey(0)
